@@ -63,8 +63,8 @@ def run():
                 worker['device_ipv4'],
                 config['appium_port'],
                 config['memuc_path'],
-                config['action_times'],
-                config['back_when_num_times']
+                config['action_times_when_feed_mode'],
+                config['action_times_when_feed_mode']
             ]
         )
         t.daemon = True
