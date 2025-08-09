@@ -1,0 +1,30 @@
+{
+    "adb_path": "adb",
+    "action_times": 5,
+    "action_times_when_feed_mode": 25,
+    "back_when_num_times": 5,
+    "action_times_in_page": 5,
+    "max_error_times_for_break": 4,
+    "logging": true,
+    "appium_port": 1000,
+    "memuc_path": "C:\\Program Files\\Microvirt\\MEmu\\memuc.exe",
+    "__warning!__": "sau khi thay đổi thiết lập, vui lòng chạy lại tool.",
+    "__comment__": "tham số `workers_information` bạn có thể thêm nhiều object với các thông số tương tự vào để tool chạy song song chúng",
+
+    "workers_information": [
+
+        {
+            "device_ipv4": "192.168.1.xx",
+            "facebook_worker_link": "https://www.facebook.com/facebook_user",
+            "golike_machine": false,
+            "tds_token": "your_tds_token",
+            "tds_cookie": null,
+            "tds_username": "username",
+            "tds_password": "passw",
+            "run_mode": "nuôi tài khoản",
+            "run": false,
+            "__comment__": "tùy chọn `run_mode` có thể được chỉnh sửa thành `nuôi tài khoản` hoặc `chạy tds`"
+        },
+
+    ]
+}
