@@ -35,4 +35,9 @@
 6. Sau đó bạn nhìn xuống thấy phần ```IMEI``` bạn nhấn vào nút ```Tạo``` hoặc để nguyên, đó là IMEI ngẫu nhiên của thiết bị.
 7. Tiếp theo bạn chuyển sang tùy chọn ```Mạng``` ở đây bạn sẽ thấy tùy chọn bridge, bạn cần chuyển sang tùy chọn này và thiết lập IP tĩnh cho máy, tên của wifi bạn cần đặt một tên tiếng anh có ý nghĩa.
 8. Sau khi xong, bạn nhấn nút ```Đồng ý ``` màu xanh dưới cùng góc bên phải và chọn khởi động lại máy
-9. Tiếp theo bạn cần đặt vị trí giả của thiết bị đến bất kỳ vùng nào của Hoa kỳ, ví dụ là newyork, sau đó bạn vào cài đặt của thiết bị, chuyển múi giờ sang vùng mà bạn đã chọn (ví dụ ở đây là newyork) sau đó bạn chuyển ngôn ngữ của thiết bị sang tiếng anh (điều bắt buộc để chạy bot không lỗi)
+9. Sau đó bạn cần thay đổi tên của thiết bị ảo ở console Memu Multi thành IP tĩnh mà bạn đã đặt (bắt buộc để bot định danh máy)
+10. Tiếp theo bạn cần đặt vị trí giả của thiết bị đến bất kỳ vùng nào của Hoa kỳ, ví dụ là newyork, sau đó bạn vào cài đặt của thiết bị, chuyển múi giờ sang vùng mà bạn đã chọn (ví dụ ở đây là newyork) sau đó bạn chuyển ngôn ngữ của thiết bị sang tiếng anh (điều bắt buộc để chạy bot không lỗi)
+
+# Hướng dẫn cấu hình ```orbot vpn```
+1. Bạn mở app ```orbot vpn``` và bật vpn lên, sau đó ở phần ```Choose app`` bạn nhấn vào và chọn facebook (điều này chỉ khiến facebook nhận vpn từ tor ngoại trừ các app khác)
+2. Sau đó bạn mở cài đặt hệ thống, bạn vào phần vpn và nhấn vào nút cài đặt ở orbot và bật ```Always-on VPN```
