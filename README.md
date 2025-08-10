@@ -39,5 +39,26 @@
 10. Tiếp theo bạn cần đặt vị trí giả của thiết bị đến bất kỳ vùng nào của Hoa kỳ, ví dụ là newyork, sau đó bạn vào cài đặt của thiết bị, chuyển múi giờ sang vùng mà bạn đã chọn (ví dụ ở đây là newyork) sau đó bạn chuyển ngôn ngữ của thiết bị sang tiếng anh (điều bắt buộc để chạy bot không lỗi)
 
 # Hướng dẫn cấu hình ```orbot vpn```
-1. Bạn mở app ```orbot vpn``` và bật vpn lên, sau đó ở phần ```Choose app`` bạn nhấn vào và chọn facebook (điều này chỉ khiến facebook nhận vpn từ tor ngoại trừ các app khác)
+1. Bạn mở app ```orbot vpn``` và bật vpn lên, sau đó ở phần ```Choose app``` bạn nhấn vào và chọn facebook (điều này chỉ khiến facebook nhận vpn từ tor ngoại trừ các app khác)
 2. Sau đó bạn mở cài đặt hệ thống, bạn vào phần vpn và nhấn vào nút cài đặt ở orbot và bật ```Always-on VPN```
+
+# Hướng dẫn chạy tool
+1. Bạn mở file ```config.json``` bạn hãy chú ý đến danh sách của key ```workers_information``` trong sanh sách đó có sắn 1 demo object như sau
+```
+{
+    "device_ipv4": "192.168.1.xx",
+    "facebook_worker_link": "https://www.facebook.com/facebook_user",
+    "tds_token": "your_tds_token",
+    "tds_cookie": null,
+    "tds_username": "username",
+    "tds_password": "passw",
+    "run_mode": "nuôi tài khoản",
+    "run": false,
+    "__comment__": "tùy chọn `run_mode` có thể được chỉnh sửa thành `nuôi tài khoản` hoặc `chạy tds`"
+}
+```
+2. Sau đó bạn copy object này ra trong danh sách đó và điền vào link tài khoản facebook làm việc của bạn cho key ```facebook_worker_link```
+3. Tiếp theo bạn cần điền vào ip tĩnh của thiết bị chứa tài khoản facebook làm việc của bạn mà bạn đã thiết lập vào key ```device_ipv4```
+4. Sau đó bạn cần thêm tds token và tds username/password của bạn
+5. tùy chọn ```run``` là một tùy chọn nếu bạn muốn bỏ qua object đó để bot không chạy thiết bị đó thì để ```false``` và ngược lại
+6. Sau khi thiết lập xong bạn có thể nhấn vào file ```main.py``` hoặc ```main.bat``` để chạy (lưu ý là để quyền mở file py mặc định là python) bạn có thể thêm nhiều thiết bị/tài khoản bằng cách thêm nhiều objects vào danh sách ```workers_information```
