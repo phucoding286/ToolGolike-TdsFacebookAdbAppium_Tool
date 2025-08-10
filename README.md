@@ -34,3 +34,5 @@
 5. Tiếp theo bạn sẽ thấy phần ```Số điện thoại``` bạn nhấn vào nút ```Tạo``` để ngẫu nhiên ra số điện thoại ở Hoa Kỳ.
 6. Sau đó bạn nhìn xuống thấy phần ```IMEI``` bạn nhấn vào nút ```Tạo``` hoặc để nguyên, đó là IMEI ngẫu nhiên của thiết bị.
 7. Tiếp theo bạn chuyển sang tùy chọn ```Mạng``` ở đây bạn sẽ thấy tùy chọn bridge, bạn cần chuyển sang tùy chọn này và thiết lập IP tĩnh cho máy, tên của wifi bạn cần đặt một tên tiếng anh có ý nghĩa.
+8. Sau khi xong, bạn nhấn nút ```Đồng ý ``` màu xanh dưới cùng góc bên phải và chọn khởi động lại máy
+9. Tiếp theo bạn cần đặt vị trí giả của thiết bị đến bất kỳ vùng nào của Hoa kỳ, ví dụ là newyork, sau đó bạn vào cài đặt của thiết bị, chuyển múi giờ sang vùng mà bạn đã chọn (ví dụ ở đây là newyork) sau đó bạn chuyển ngôn ngữ của thiết bị sang tiếng anh (điều bắt buộc để chạy bot không lỗi)
