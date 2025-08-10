@@ -1,1 +1,17 @@
-- Sản phẩm tạm thời mới hoàn thiện và đăng tải, tạm thời chưa có hướng dẫn và mô tả nào. Thắc mắc vui lòng liên hệ -> https://www.facebook.com/hoangphu020
+# Hướng dẫn cài đặt các phụ thuộc cần thiết
+1. bạn cần cài đặt ```python``` với phiên bản ```3.11```
+- [link tải python, hãy kéo xuống cùng trang bạn sẽ thấy các bản cài đặt](https://www.python.org/downloads/release/python-3110/)
+
+2. bạn cần cài đặt ```android-studio```
+- [link tải android-studio (bạn có thể tải thủ công nếu link lỗi)](https://drive.google.com/file/d/1eG1hifNHqvXMb4IPuJaVNGBeaPo--Dkl/view?usp=drive_link)
+
+3. bạn cần cài đặt ```appium```
+- [link cài đặt appium](https://github.com/appium/appium-desktop/releases/tag/v1.21.0)
+
+4. Bạn cần cài đặt ```Java```
+- [link cài đặt java](https://download.oracle.com/java/23/archive/jdk-23.0.2_windows-x64_bin.exe)
+
+- Link video hướng dẫn chi tiết setup appium và android studio [Link Video 1](https://youtu.be/oqaJvdIQ7JQ?si=Zc_kqeJcMMiULRZ8) [Link video 2](https://youtu.be/AExZRlVznQs?si=nLJexMYi4abqWKB4)
+
+5. Bạn cần tải ```facebook lite``` phiên bản ```470.0.0.3.109``` trên thiết bị mobile của bạn (đây là điều bắt buộc)
+- [link cài đặt ```facebook lite v470.0.0.3.109```](https://drive.google.com/file/d/1QxydgeBCsCrechpZcucEAJ6LobpRZ6vK/view?usp=sharing)
