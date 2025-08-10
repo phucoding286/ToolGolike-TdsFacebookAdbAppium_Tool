@@ -25,4 +25,12 @@
 8. Bạn cần cài đặt ```orbot vpn``` trên thiết bị mobile của mình (có thể bỏ qua và tải bên ngoài hoặc chplay)
 - [link cài đặt ```orbot vpn```](https://drive.google.com/file/d/1sJDieW75K1ACdvZztcKeQQwD72aNpbb4/view?usp=sharing)
 
-# Hướng dẫn setup máy ảo Memu ```Player``` để chạy Bot
+# Hướng dẫn setup máy ảo Memu Player để chạy Bot
+1. Sau khi cài đặt ```Memu Player``` hãy tạo một máy ảo đầu tiên (bắt buộc là ```android 7```)
+1. Sau khi bạn cài đặt xong ```Memu Player``` và tạo một máy ảo đầu tiên, bạn nhấn vào phần ```3 gạch``` trên cùng của cửa sổ máy ảo và nhấn vào tùy chọn ```setting```
+2. Sau đó bạn nhấn vào mục ```Hiển thị``` và điều chỉnh kích cỡ màn hình là ```720x1280 (320 dpi)```
+3. Tiếp theo bạn chuyển sang nhấn vào mục ```Hồ sơ ``` và nhấn chọn mô hình thiết bị là ```Google Pixel 2```
+4. Sau đó tới phần nhà mạng bạn chọn nhà mạng ở ```United State (Hoa kỳ)``` nếu chọn đúng nó sẽ để là ```AT&T Mobility```
+5. Tiếp theo bạn sẽ thấy phần ```Số điện thoại``` bạn nhấn vào nút ```Tạo``` để ngẫu nhiên ra số điện thoại ở Hoa Kỳ.
+6. Sau đó bạn nhìn xuống thấy phần ```IMEI``` bạn nhấn vào nút ```Tạo``` hoặc để nguyên, đó là IMEI ngẫu nhiên của thiết bị.
+7. Tiếp theo bạn chuyển sang tùy chọn ```Mạng``` ở đây bạn sẽ thấy tùy chọn bridge, bạn cần chuyển sang tùy chọn này và thiết lập IP tĩnh cho máy, tên của wifi bạn cần đặt một tên tiếng anh có ý nghĩa.
