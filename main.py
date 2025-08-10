@@ -347,9 +347,10 @@ def run():
 
 
 if __name__ == "__main__":
-    t = multiprocessing.Process(target=run)
-    t.daemon = True
-    t.start()
+    # t = multiprocessing.Process(target=run)
+    # t.daemon = True
+    # t.start()
+    run()
     while True:
-        try: input()
+        try: input(">>> ")
         except: pass

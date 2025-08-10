@@ -90,8 +90,11 @@ def driver_init(adb_path, ask_udid=True, device_id=None, appium_port=None):
 
 
 def facebook_init(driver: webdriver.Remote, device_id):
-    driver.terminate_app("com.facebook.lite")
-    driver.activate_app("com.facebook.lite")
+    try:
+        driver.terminate_app("com.facebook.lite")
+        driver.activate_app("com.facebook.lite")
+    except:
+        pass
     print(system_color(f"[> {device_id}] đang check phiên có bị văng hay không..."))
     try:
         check_login_btn = WebDriverWait(driver, 4).until(
@@ -103,8 +106,11 @@ def facebook_init(driver: webdriver.Remote, device_id):
         print(system_color(f"[> {device_id}] không phát hiện phiên bị văng, tiếp tục..."))
 
 def golike_init(driver: webdriver.Remote):
-    driver.terminate_app("com.golike")
-    driver.activate_app("com.golike")
+    try:
+        driver.terminate_app("com.golike")
+        driver.activate_app("com.golike")
+    except:
+        pass
 
 
 # make waiting animation theme
