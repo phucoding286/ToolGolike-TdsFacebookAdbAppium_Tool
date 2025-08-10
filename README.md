@@ -21,3 +21,6 @@
 
 7. Bạn cần cài đặt trình giả lập mobile ```Memu Player``` (có thể bỏ qua nếu bạn định chạy trên thiết bị thật)
 - [link cài đặt ```Memu Player```](https://drive.google.com/file/d/1FNXCYquByh8IxO52dMEkXIJSvyv_ME50/view?usp=sharing)
+
+8. Bạn cần cài đặt ```orbot vpn``` trên thiết bị mobile của mình (có thể bỏ qua và tải bên ngoài hoặc chplay)
+- [link cài đặt ```orbot vpn```](https://drive.google.com/file/d/1sJDieW75K1ACdvZztcKeQQwD72aNpbb4/view?usp=sharing)
