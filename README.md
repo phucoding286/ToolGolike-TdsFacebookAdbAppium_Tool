@@ -15,3 +15,6 @@
 
 5. Bạn cần tải ```facebook lite``` phiên bản ```470.0.0.3.109``` trên thiết bị mobile của bạn (đây là điều bắt buộc)
 - [link cài đặt ```facebook lite v470.0.0.3.109```](https://drive.google.com/file/d/1QxydgeBCsCrechpZcucEAJ6LobpRZ6vK/view?usp=sharing)
+
+6. Bạn cần cài đặt ```golike v1.5.0``` trên thiết bị mobile của bạn (đây là điều bắt buộc)
+- [link cài đặt ```golike v1.5.0```](https://drive.google.com/file/d/16FTtX58rXZ7yc1q8-8SFv2SoZbzrC541/view?usp=sharing)
