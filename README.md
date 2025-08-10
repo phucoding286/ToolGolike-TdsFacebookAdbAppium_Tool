@@ -18,3 +18,6 @@
 
 6. Bạn cần cài đặt ```golike v1.5.0``` trên thiết bị mobile của bạn (đây là điều bắt buộc)
 - [link cài đặt ```golike v1.5.0```](https://drive.google.com/file/d/16FTtX58rXZ7yc1q8-8SFv2SoZbzrC541/view?usp=sharing)
+
+7. Bạn cần cài đặt trình giả lập mobile ```Memu Player``` (có thể bỏ qua nếu bạn định chạy trên thiết bị thật)
+- [link cài đặt ```Memu Player```](https://drive.google.com/file/d/1FNXCYquByh8IxO52dMEkXIJSvyv_ME50/view?usp=sharing)
