@@ -24,3 +24,5 @@
 
 8. Bạn cần cài đặt ```orbot vpn``` trên thiết bị mobile của mình (có thể bỏ qua và tải bên ngoài hoặc chplay)
 - [link cài đặt ```orbot vpn```](https://drive.google.com/file/d/1sJDieW75K1ACdvZztcKeQQwD72aNpbb4/view?usp=sharing)
+
+# Hướng dẫn setup máy ảo Memu ```Player``` để chạy Bot
