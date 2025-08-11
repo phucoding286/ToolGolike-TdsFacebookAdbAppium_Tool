@@ -78,6 +78,7 @@ class MainProgram:
         
         error_count, success_count = 1, 0
         error_get_task_counter = 0
+        error_get_task_try_counter = 0
         like_error_counter = 0
         while True:
             if feed_mode:
@@ -107,7 +108,12 @@ class MainProgram:
                         tds_token=self.tds_token
                     )
                     error_get_task_counter = 0
+                    error_get_task_try_counter += 1
+                    if error_get_task_try_counter >= 4:
+                        break
                 continue
+            else:
+                error_get_task_try_counter = 0
             
             like_error = False
             for infor in r:
