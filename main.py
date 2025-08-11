@@ -252,6 +252,7 @@ class MainProgram:
         
         error_vrfj_counter = 0
         error_facebook_init = 0
+        like_error_counter = 0
         while True:
             r = self.action_sim.feed_scroller(
                 driver,
@@ -284,14 +285,21 @@ class MainProgram:
             rlp = self.fb.find_and_like_post(driver, r[1])
             if rlp == "error":
                 print(error_color(f"[! {self.device_id}] like bài viết thất bại, tạo lại fb driver và bỏ job"))
+                like_error_counter += 1
+                if like_error_counter >= 5:
+                    return
                 if self.gl_fb.drop_job(driver) == "success":
                     print(success_color(f"[# {self.device_id}] bỏ job thành công"))
                 else:
                     print(error_color(f"[! {self.device_id}] bỏ job thất bại, bỏ qua luồng làm việc golike này."))
                     return
-                facebook_init(driver, self.device_id)
+                if error_facebook_init >= 10:
+                    break
+                try: facebook_init(driver, self.device_id)
+                except: error_facebook_init += 1
                 continue
             else:
+                like_error_counter = 0
                 print(success_color(f"[$ {self.device_id}] like bài viết thành công, tiến hành xác minh job"))
                 pass
             
