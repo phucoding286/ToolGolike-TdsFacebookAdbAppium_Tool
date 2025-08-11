@@ -253,7 +253,7 @@ class MainProgram:
                 back_when_num_times
             )
             if isinstance(r, dict) and "error" in r:
-                if error_facebook_init >= 5:
+                if error_facebook_init >= 10:
                     break
                 print(error_color(f"[! {self.device_id}] lỗi khi simulate."))
                 try: facebook_init(driver, self.device_id)
@@ -350,18 +350,24 @@ def run():
                 tds_password=worker['tds_password'],
                 max_error_times_for_break=config['max_error_times_for_break']
             )
-
-            m.doing_task(
-                config['action_times_when_feed_mode'] if worker['run_mode'].lower().strip() == "nuôi tài khoản" else config['action_times'],
-                config['action_times_when_feed_mode'] if worker['run_mode'].lower().strip() == "nuôi tài khoản" else config['back_when_num_times'],
-                config['action_times_in_page'],
-                worker['run_mode'].lower().strip() == "nuôi tài khoản"
-            )
-
-            m.doing_golike_task(
-                config['action_times_when_feed_mode'] if worker['run_mode'].lower().strip() == "nuôi tài khoản" else config['action_times'],
-                config['action_times_when_feed_mode'] if worker['run_mode'].lower().strip() == "nuôi tài khoản" else config['back_when_num_times']
-            )
+            
+            try:
+                m.doing_task(
+                    config['action_times_when_feed_mode'] if worker['run_mode'].lower().strip() == "nuôi tài khoản" else config['action_times'],
+                    config['action_times_when_feed_mode'] if worker['run_mode'].lower().strip() == "nuôi tài khoản" else config['back_when_num_times'],
+                    config['action_times_in_page'],
+                    worker['run_mode'].lower().strip() == "nuôi tài khoản"
+                )
+            except:
+                pass
+            
+            try:
+                m.doing_golike_task(
+                    config['action_times_when_feed_mode'] if worker['run_mode'].lower().strip() == "nuôi tài khoản" else config['action_times'],
+                    config['action_times_when_feed_mode'] if worker['run_mode'].lower().strip() == "nuôi tài khoản" else config['back_when_num_times']
+                )
+            except:
+                pass
 
             subprocess.run(
                 [config['memuc_path'], 'stop', "-i", vm_id],
