@@ -122,6 +122,7 @@ class MainProgram:
                 error_get_task_try_counter = 0
             
             like_error = False
+            try_sim_times_counter = 0
             for infor in r:
                 r = self.action_sim.feed_scroller(
                     driver,
@@ -129,7 +130,9 @@ class MainProgram:
                     back_when_num_times * 2 if error_count != 1 else back_when_num_times
                 )
                 if isinstance(r, dict) and "error" in r and not like_error:
-                    print(error_color(f"[! {self.device_id}] like trang thất bại."))
+                    print(error_color(f"[! {self.device_id}] simulate lỗi."))
+                    if try_sim_times_counter >= 4:
+                        return
                     try: driver.quit()
                     except: pass
                     driver = driver_init(
@@ -138,7 +141,10 @@ class MainProgram:
                         device_id=self.device_id,
                         appium_port=self.appium_port
                     )
+                    try_sim_times_counter += 1
                     continue
+                else:
+                    try_sim_times_counter = 0
 
                 if self.fb.like_page(driver, page_link=infor['link']) == "success":
                     if self.logging:
