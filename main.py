@@ -89,6 +89,7 @@ class MainProgram:
                     back_when_num_times * error_count
                 )
                 if isinstance(r, dict) and "error" in r:
+                    print(error_color(f"[! {self.device_id}] lỗi khi simulate."))
                     try: facebook_init(driver, self.device_id)
                     except: pass
                     continue
@@ -123,6 +124,7 @@ class MainProgram:
                     back_when_num_times * 2 if error_count != 1 else back_when_num_times
                 )
                 if isinstance(r, dict) and "error" in r and not like_error:
+                    print(error_color(f"[! {self.device_id}] like trang thất bại."))
                     try: driver.quit()
                     except: pass
                     driver = driver_init(
@@ -144,6 +146,7 @@ class MainProgram:
                             back_home=False
                         )
                         if isinstance(r, dict) and "error" in r:
+                            print(error_color(f"[! {self.device_id}] lỗi khi simulate."))
                             try: facebook_init(driver, self.device_id)
                             except: pass
                         os.system(f"{self.adb_path} -s {self.device_id} shell input keyevent 4")
@@ -240,6 +243,7 @@ class MainProgram:
                 back_when_num_times
             )
             if isinstance(r, dict) and "error" in r:
+                print(error_color(f"[! {self.device_id}] lỗi khi simulate."))
                 try: facebook_init(driver, self.device_id)
                 except: pass
                 continue
