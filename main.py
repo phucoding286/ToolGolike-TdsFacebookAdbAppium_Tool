@@ -81,6 +81,7 @@ class MainProgram:
         error_get_task_try_counter = 0
         like_error_counter = 0
         error_facebook_init = 0
+        error_sim_counter = 0
         while True:
             if feed_mode:
                 print(f"FEED_MODE: thiết bị '{self.device_id}' với account tds '{self.tds_username}' bạn đang trong chế độ nuôi tài khoản'")
@@ -92,12 +93,16 @@ class MainProgram:
                 if isinstance(r, dict) and "error" in r:
                     if error_facebook_init >= 10:
                         break
+                    if error_sim_counter >= 5:
+                        return
                     print(error_color(f"[! {self.device_id}] lỗi khi simulate."))
                     try: facebook_init(driver, self.device_id)
                     except: error_facebook_init += 1
+                    error_sim_counter +=1
                     continue
                 else:
                     error_facebook_init = 0
+                    error_sim_counter = 0
                 continue
 
             r = self.tds.get_task_facebook_fanpage(False)
@@ -159,11 +164,15 @@ class MainProgram:
                         if isinstance(r, dict) and "error" in r:
                             if error_facebook_init >= 10:
                                 break
+                            if error_sim_counter >= 5:
+                                return
                             print(error_color(f"[! {self.device_id}] lỗi khi simulate."))
                             try: facebook_init(driver, self.device_id)
                             except: error_facebook_init += 1
+                            error_sim_counter += 1
                         else:
                             error_facebook_init = 0
+                            error_sim_counter = 0
                         os.system(f"{self.adb_path} -s {self.device_id} shell input keyevent 4")
                         like_error = False
                         like_error_counter = 0
@@ -253,6 +262,7 @@ class MainProgram:
         error_vrfj_counter = 0
         error_facebook_init = 0
         like_error_counter = 0
+        error_sim_counter = 0
         while True:
             r = self.action_sim.feed_scroller(
                 driver,
@@ -262,12 +272,16 @@ class MainProgram:
             if isinstance(r, dict) and "error" in r:
                 if error_facebook_init >= 10:
                     break
+                if error_sim_counter >= 5:
+                    return
                 print(error_color(f"[! {self.device_id}] lỗi khi simulate."))
                 try: facebook_init(driver, self.device_id)
                 except: error_facebook_init += 1
+                error_sim_counter += 1
                 continue
             else:
                 error_facebook_init = 0
+                error_sim_counter = 0
             
             r = self.gl_fb.get_task(driver)
             while r[0].strip() != "TĂNG LIKE CHO BÀI VIẾT":
