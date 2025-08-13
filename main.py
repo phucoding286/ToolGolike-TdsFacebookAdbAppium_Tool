@@ -138,14 +138,12 @@ class MainProgram:
                     print(error_color(f"[! {self.device_id}] simulate lỗi."))
                     if try_sim_times_counter >= 4:
                         return
+                    if error_facebook_init >= 10:
+                        break
                     try: driver.quit()
                     except: pass
-                    driver = driver_init(
-                        adb_path=self.adb_path,
-                        ask_udid=False,
-                        device_id=self.device_id,
-                        appium_port=self.appium_port
-                    )
+                    try: facebook_init(driver, self.device_id)
+                    except: error_facebook_init += 1
                     try_sim_times_counter += 1
                     continue
                 else:
