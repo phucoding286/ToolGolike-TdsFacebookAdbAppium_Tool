@@ -46,6 +46,7 @@ capabilities = {
 }
 
 def driver_init(adb_path, ask_udid=True, device_id=None, appium_port=None):
+    os.system(f"{adb_path} -s {device_id} shell input keyevent KEYCODE_HOME")
     for retry in range(5):
         try:
             requests.get("https://www.google.com/", timeout=2)
