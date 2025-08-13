@@ -97,7 +97,7 @@ def facebook_init(driver: webdriver.Remote, device_id):
         pass
     print(system_color(f"[> {device_id}] đang check phiên có bị văng hay không..."))
     try:
-        check_login_btn = WebDriverWait(driver, 4).until(
+        check_login_btn = WebDriverWait(driver, 20).until(
             EC.presence_of_element_located((By.XPATH, "//android.view.View[@text='Log in']"))
         )
         check_login_btn.click()
