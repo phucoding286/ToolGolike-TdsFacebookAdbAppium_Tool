@@ -76,6 +76,11 @@ def driver_init(adb_path, ask_udid=True, device_id=None, appium_port=None):
 
             driver = webdriver.Remote(appium_server_url, options=AppiumOptions().load_capabilities(capabilities))            
             error = False
+
+            try:
+                driver.get_window_size()
+            except:
+                continue
             break
 
         except Exception as e:
@@ -95,6 +100,7 @@ def driver_init(adb_path, ask_udid=True, device_id=None, appium_port=None):
 def facebook_init(driver: webdriver.Remote, device_id):
     try:
         driver.terminate_app("com.facebook.lite")
+        time.sleep(1)
         driver.activate_app("com.facebook.lite")
     except:
         pass
@@ -111,10 +117,10 @@ def facebook_init(driver: webdriver.Remote, device_id):
 def golike_init(driver: webdriver.Remote):
     try:
         driver.terminate_app("com.golike")
+        time.sleep(1)
         driver.activate_app("com.golike")
     except:
         pass
-    time.sleep(5)
 
 
 # make waiting animation theme
