@@ -68,7 +68,7 @@ def driver_init(adb_path, ask_udid=True, device_id=None, appium_port=None):
         capabilities['udid'] = device_id
     
     error = False
-    while True:
+    for _ in range(10):
         try:
 
             if len(capabilities['udid'].split(".")) >= 3 and error:
@@ -86,6 +86,8 @@ def driver_init(adb_path, ask_udid=True, device_id=None, appium_port=None):
                 pass
             print(error_color(f"[Device: {device_id}] [!] Lỗi khi tạo driver, thử lại..."))
             error = True
+    else:
+        return "error"
     
     return driver
 

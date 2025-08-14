@@ -74,6 +74,8 @@ class MainProgram:
             device_id=self.device_id,
             appium_port=self.appium_port
         )
+        if driver == "error":
+            return
         facebook_init(driver, self.device_id)
         
         error_count, success_count = 1, 0
@@ -238,6 +240,8 @@ class MainProgram:
             device_id=self.device_id,
             appium_port=self.appium_port
         )
+        if driver == "error":
+            return
         err = 0
         while err < 10:
             golike_init(driver)
