@@ -45,7 +45,18 @@ capabilities = {
   "noReset": True
 }
 
+def keep_driver_alive(driver: webdriver.Remote):
+    def r():
+        while True:
+            driver.get_window_size()
+            time.sleep(4)
+    t = threading.Thread(target=r)
+    t.daemon = True
+    t.start()
+
 def driver_init(adb_path, ask_udid=True, device_id=None, appium_port=None):
+    global capabilities
+    capabilities = capabilities.copy()
     os.system(f"{adb_path} -s {device_id} shell input keyevent KEYCODE_HOME")
     for retry in range(5):
         try:
@@ -94,6 +105,7 @@ def driver_init(adb_path, ask_udid=True, device_id=None, appium_port=None):
     else:
         return "error"
     
+    keep_driver_alive(driver)
     return driver
 
 
