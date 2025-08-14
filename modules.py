@@ -114,6 +114,7 @@ def golike_init(driver: webdriver.Remote):
         driver.activate_app("com.golike")
     except:
         pass
+    time.sleep(5)
 
 
 # make waiting animation theme
