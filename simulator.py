@@ -28,9 +28,14 @@ class ActionsSimulator:
     
     def __like_post__(self, driver: webdriver.Remote):
         try:
-            WebDriverWait(driver, 1).until(
-                EC.presence_of_element_located((By.XPATH, "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup[1]/android.view.ViewGroup[3]/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[2]/android.view.ViewGroup[2]"))
-            ).click()
+            try:
+                WebDriverWait(driver, 1).until(
+                    EC.presence_of_element_located((By.XPATH, "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup[1]/android.view.ViewGroup[3]/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[2]/android.view.ViewGroup[2]"))
+                ).click()
+            except:
+                WebDriverWait(driver, 1).until(
+                    EC.presence_of_element_located((By.XPATH, "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup[1]/android.view.ViewGroup/android.view.ViewGroup[3]/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[2]/android.view.ViewGroup[2]"))
+                ).click()
             return "success"
         except:
             return "error"
@@ -46,9 +51,14 @@ class ActionsSimulator:
             "Hello"
         ]
         try:
-            cmt_cell = WebDriverWait(driver, 1).until(
-                EC.presence_of_element_located((By.XPATH, "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup[1]/android.widget.MultiAutoCompleteTextView"))
-            )
+            try:
+                cmt_cell = WebDriverWait(driver, 1).until(
+                    EC.presence_of_element_located((By.XPATH, "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup[1]/android.widget.MultiAutoCompleteTextView"))
+                )
+            except:
+                cmt_cell = WebDriverWait(driver, 1).until(
+                    EC.presence_of_element_located((By.XPATH, "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup[1]/android.view.ViewGroup/android.widget.MultiAutoCompleteTextView"))
+                )
             cmt_cell.send_keys(random.choice(cmt_list))
             time.sleep(1)
             try:
@@ -57,10 +67,16 @@ class ActionsSimulator:
                 )
                 send_btn.click()
             except:
-                send_btn = WebDriverWait(driver, 1).until(
-                    EC.presence_of_element_located((By.XPATH, "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup[1]/android.view.ViewGroup[4]/android.view.View"))
-                )
-                send_btn.click()
+                try:
+                    send_btn = WebDriverWait(driver, 1).until(
+                        EC.presence_of_element_located((By.XPATH, "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup[1]/android.view.ViewGroup[4]/android.view.View"))
+                    )
+                    send_btn.click()
+                except:
+                    send_btn = WebDriverWait(driver, 1).until(
+                        EC.presence_of_element_located((By.XPATH, "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup[1]/android.view.ViewGroup/android.view.ViewGroup[5]/android.view.View"))
+                    )
+                    send_btn.click()
             return "success"
         except:
             return "error"
@@ -68,10 +84,16 @@ class ActionsSimulator:
 
     def __share_post__(self, driver: webdriver.Remote):
         try:
-            share_btn = WebDriverWait(driver, 1).until(
-                EC.presence_of_element_located((By.XPATH, "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup[1]/android.view.ViewGroup[3]/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[2]/android.view.ViewGroup[5]"))
-            )
-            share_btn.click()
+            try:
+                share_btn = WebDriverWait(driver, 1).until(
+                    EC.presence_of_element_located((By.XPATH, "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup[1]/android.view.ViewGroup[3]/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[2]/android.view.ViewGroup[5]"))
+                )
+                share_btn.click()
+            except:
+                share_btn = WebDriverWait(driver, 1).until(
+                    EC.presence_of_element_located((By.XPATH, "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup[1]/android.view.ViewGroup/android.view.ViewGroup[3]/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[2]/android.view.ViewGroup[4]"))
+                )
+                share_btn.click()
             
             time.sleep(1)
             
@@ -141,9 +163,14 @@ class ActionsSimulator:
             view_previous_reply_btn.click()
 
             try:
-                WebDriverWait(driver, 1).until( # most relevant btn
-                    EC.presence_of_element_located((By.XPATH, "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup[1]/android.view.ViewGroup[3]/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[3]/android.view.ViewGroup"))
-                )
+                try:
+                    WebDriverWait(driver, 2).until( # most relevant btn
+                        EC.presence_of_element_located((By.XPATH, "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup[1]/android.view.ViewGroup[3]/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[3]/android.view.ViewGroup"))
+                    )
+                except:
+                    WebDriverWait(driver, 1).until( # most relevant btn
+                        EC.presence_of_element_located((By.XPATH, "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup[1]/android.view.ViewGroup/android.view.ViewGroup[3]/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[3]/android.view.ViewGroup[1]"))
+                    )
                 return False
             except:
                 if self.logging:
