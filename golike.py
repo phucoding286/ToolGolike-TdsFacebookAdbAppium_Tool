@@ -7,13 +7,14 @@ class GolikeFacebook:
     def gl_init(self, driver: webdriver.Remote):
         try:
             driver.activate_app("com.golike")
+
             kiem_thuong_btn = WebDriverWait(driver, 10).until(
-                EC.presence_of_element_located((By.XPATH, "//android.widget.TextView[@text='Kiếm Thưởng']"))
+                EC.presence_of_element_located((By.XPATH, "//*[@text='Kiếm Thưởng']"))
             )
             kiem_thuong_btn.click()
 
             facebook_cell = WebDriverWait(driver, 5).until(
-                EC.presence_of_element_located((By.XPATH, "//android.widget.TextView[@text='Facebook']"))
+                EC.presence_of_element_located((By.XPATH, "//*[@text='Facebook']"))
             )
             facebook_cell.click()
             return "success"
@@ -33,7 +34,7 @@ class GolikeFacebook:
             while task_content == "" and i < 5:
                 try:
                     first_task = WebDriverWait(driver, 1).until(
-                        EC.presence_of_all_elements_located((By.XPATH, "//android.widget.TextView[@text='chevron_right']"))
+                        EC.presence_of_all_elements_located((By.XPATH, "//*[@text='chevron_right']"))
                     )
                     first_task[0].click()
                 except:
@@ -44,17 +45,28 @@ class GolikeFacebook:
                 time.sleep(1)
 
                 task_content = WebDriverWait(driver, 5).until(
-                    EC.presence_of_element_located((By.XPATH, "//android.widget.TextView[starts-with(@text, 'TĂNG')]"))
+                    EC.presence_of_element_located((By.XPATH, "//*[starts-with(@text, 'TĂNG')]"))
                 ).text
 
             target_info = WebDriverWait(driver, 5).until(
-            EC.presence_of_element_located((By.XPATH, "//android.widget.TextView[starts-with(@text, 'Job Id')]"))
+            EC.presence_of_element_located((By.XPATH, "//*[starts-with(@text, 'Job Id')]"))
             ).text
-
-            facebook_btn = WebDriverWait(driver, 5).until(
-                EC.presence_of_element_located((By.XPATH, "//android.view.View[@content-desc='Facebook Làm việc bằng ứng dụng Facebook trên điện thoại. chevron_right']"))
-            )
-            facebook_btn.click()
+            
+            # facebook_btn = WebDriverWait(driver, 5).until(
+            #     EC.presence_of_element_located((By.XPATH, "//*[@text='Facebook Làm việc bằng ứng dụng Facebook trên điện thoại. chevron_right']"))
+            # )
+            # facebook_btn.click()
+            
+            try:
+                facebook_btn = WebDriverWait(driver, 2.5).until(
+                    EC.presence_of_element_located((By.XPATH, "//*[starts-with(@text, 'Facebook Làm việc bằng ứng dụng Facebook')]"))
+                )
+                facebook_btn.click()
+            except:
+                facebook_btn = WebDriverWait(driver, 2.5).until(
+                    EC.presence_of_element_located((By.XPATH, "//*[starts-with(@text, 'Làm việc bằng ứng dụng Facebook')]"))
+                )
+                facebook_btn.click()
             
             return task_content, target_info.split("Fb Id: ")[1]
         except:
@@ -77,7 +89,7 @@ class GolikeFacebook:
             for i in range(2):
                 try:
                     complete_btn = WebDriverWait(driver, 2).until(
-                        EC.presence_of_element_located((By.XPATH, "//android.widget.TextView[@text='Bấm hoàn thành để nhận tiền sau khi làm việc xong.']"))
+                        EC.presence_of_element_located((By.XPATH, "//*[@text='Bấm hoàn thành để nhận tiền sau khi làm việc xong.']"))
                     )
                     complete_btn.click()
                     break
@@ -89,10 +101,10 @@ class GolikeFacebook:
 
             try:
                 error_job_check = WebDriverWait(driver, 5).until(
-                     EC.presence_of_element_located((By.XPATH, "//android.widget.TextView[@text='Lỗi']"))
+                     EC.presence_of_element_located((By.XPATH, "//*[@text='Lỗi']"))
                 )
                 ok_btn = WebDriverWait(driver, 5).until(
-                    EC.presence_of_element_located((By.XPATH, "//android.widget.Button[@text='OK']"))
+                    EC.presence_of_element_located((By.XPATH, "//*[@text='OK']"))
                 )
                 ok_btn.click()
                 return "error"
@@ -100,10 +112,10 @@ class GolikeFacebook:
                 pass
         
             success_job_check = WebDriverWait(driver, 5).until(
-                EC.presence_of_element_located((By.XPATH, "//android.widget.TextView[@text='Thành công']"))
+                EC.presence_of_element_located((By.XPATH, "//*[@text='Thành công']"))
             )
             ok_btn = WebDriverWait(driver, 20).until(
-                EC.presence_of_element_located((By.XPATH, "//android.widget.Button[@text='OK']"))
+                EC.presence_of_element_located((By.XPATH, "//*[@text='OK']"))
             )
             ok_btn.click()
             return "success"
@@ -126,7 +138,7 @@ class GolikeFacebook:
                 driver.swipe(x, y, x, 100, 500)
                 try:
                     drop_job_btn = WebDriverWait(driver, 5).until(
-                        EC.presence_of_element_located((By.XPATH, "//android.widget.TextView[@text='Báo lỗi cho hệ thống khi làm việc thất bại']"))
+                        EC.presence_of_element_located((By.XPATH, "//*[@text='Báo lỗi cho hệ thống khi làm việc thất bại']"))
                     )
                     drop_job_btn.click()
                     break
@@ -140,7 +152,7 @@ class GolikeFacebook:
                 driver.swipe(x, y, x, 100, 500)
                 try:
                     send_drop_job_btn = WebDriverWait(driver, 5).until(
-                        EC.presence_of_element_located((By.XPATH, "//android.widget.Button[@text='Gửi báo cáo']"))
+                        EC.presence_of_element_located((By.XPATH, "//*[@text='Gửi báo cáo']"))
                     )
                     send_drop_job_btn.click()
                     break
@@ -152,10 +164,10 @@ class GolikeFacebook:
         
             try:
                 sended_check = WebDriverWait(driver, 5).until(
-                    EC.presence_of_element_located((By.XPATH, "//android.widget.TextView[@text='Đã gửi báo cáo lên hệ thống']"))
+                    EC.presence_of_element_located((By.XPATH, "//*[@text='Đã gửi báo cáo lên hệ thống']"))
                 )
                 ok_btn = WebDriverWait(driver, 20).until(
-                    EC.presence_of_element_located((By.XPATH, "//android.widget.Button[@text='OK']"))
+                    EC.presence_of_element_located((By.XPATH, "//*[@text='OK']"))
                 )
                 ok_btn.click()
                 return "success"
@@ -168,25 +180,31 @@ class GolikeFacebook:
     def set_account_run(self, driver: webdriver.Remote, facebook_uid: str):
         try:
             ok_btn = WebDriverWait(driver, 5).until(
-                EC.presence_of_element_located((By.XPATH, "//android.widget.Button[@text='OK']"))
+                EC.presence_of_element_located((By.XPATH, "//*[@text='OK']"))
             )
             ok_btn.click()
         except:
             pass
         try:
             driver.activate_app("com.golike")
+            # select_list_account = WebDriverWait(driver, 5).until(
+            #     EC.presence_of_element_located((By.XPATH, "//*[@text='kiếm thưởng chevron_right']"))
+            # )
+            # select_list_account.click()
+
             select_list_account = WebDriverWait(driver, 5).until(
-                EC.presence_of_element_located((By.XPATH, "//android.view.View[@text='kiếm thưởng chevron_right']"))
+                EC.presence_of_element_located((By.XPATH, "//*[starts-with(@text, 'kiếm thưởng chevron_right')]"))
             )
             select_list_account.click()
+
             account_selected = WebDriverWait(driver, 5).until(
-                EC.presence_of_element_located((By.XPATH, f"//android.view.View[@resource-id='{facebook_uid}']"))
+                EC.presence_of_element_located((By.XPATH, f"//*[@resource-id='{facebook_uid}']"))
             )
             account_selected.click()
 
             try:
                 ok_btn = WebDriverWait(driver, 5).until(
-                    EC.presence_of_element_located((By.XPATH, "//android.widget.Button[@text='OK']"))
+                    EC.presence_of_element_located((By.XPATH, "//*[@text='OK']"))
                 )
                 ok_btn.click()
             except:
@@ -207,7 +225,7 @@ if __name__ == "__main__":
 
     gl_obj = GolikeFacebook()
     gl_obj.gl_init(driver)
-    gl_obj.set_account_run(driver, "61579025365085")
+    gl_obj.set_account_run(driver, "61579390404117")
     input(">>> ")
     print(gl_obj.get_task(driver))
 
