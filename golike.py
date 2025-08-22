@@ -88,7 +88,7 @@ class GolikeFacebook:
         
             for i in range(2):
                 try:
-                    complete_btn = WebDriverWait(driver, 2).until(
+                    complete_btn = WebDriverWait(driver, 4).until(
                         EC.presence_of_element_located((By.XPATH, "//*[@text='Bấm hoàn thành để nhận tiền sau khi làm việc xong.']"))
                     )
                     complete_btn.click()
@@ -209,7 +209,7 @@ class GolikeFacebook:
                 ok_btn.click()
             except:
                 pass
-            driver.background_app("com.golike")
+            # driver.background_app("com.golike")
             return "success"
         except:
             return "error"
@@ -218,7 +218,7 @@ if __name__ == "__main__":
     driver = driver_init(
         adb_path="adb",
         ask_udid=False,
-        device_id="192.168.1.250:5555",
+        device_id="192.168.1.246:5555",
         appium_port=1000
     )
     golike_init(driver)
@@ -226,8 +226,9 @@ if __name__ == "__main__":
     gl_obj = GolikeFacebook()
     gl_obj.gl_init(driver)
     gl_obj.set_account_run(driver, "61579390404117")
-    input(">>> ")
+    # input(">>> ")
     print(gl_obj.get_task(driver))
+    time.sleep(4)
 
     for i in range(5):
         if gl_obj.verify_job(driver) == "error":
