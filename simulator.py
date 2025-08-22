@@ -174,14 +174,19 @@ class ActionsSimulator:
                 cmt_btn.click()
 
             try:
-                WebDriverWait(driver, 1).until( # most relevant btn
+                WebDriverWait(driver, 2).until( # most relevant btn
                     EC.presence_of_element_located((By.XPATH, "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup[1]/android.view.ViewGroup[3]/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[3]/android.view.ViewGroup"))
                 )
             except:
-                os.system(f"{self.adb_path} -s {self.device_id} shell input keyevent 4")
-                if self.logging:
-                    print(error_color(f"[! {self.device_id}] bài viết chưa có comment nào"))
-                return
+                try:
+                    WebDriverWait(driver, 1).until( # most relevant btn
+                        EC.presence_of_element_located((By.XPATH, "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup[1]/android.view.ViewGroup/android.view.ViewGroup[3]/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[3]/android.view.ViewGroup[1]"))
+                    )
+                except:
+                    os.system(f"{self.adb_path} -s {self.device_id} shell input keyevent 4")
+                    if self.logging:
+                        print(error_color(f"[! {self.device_id}] bài viết chưa có comment nào"))
+                    return
 
             if self.logging:
                 print(system_color(f"[> {self.device_id}] view in comment..."))
