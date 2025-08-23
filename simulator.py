@@ -213,10 +213,16 @@ class ActionsSimulator:
                         )
                         cmt_btn.click()
                     except:
-                        cmt_btn = WebDriverWait(driver, 1).until(
-                            EC.presence_of_element_located((By.XPATH, "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup[2]/android.view.ViewGroup[11]/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[2]/android.view.ViewGroup[3]/android.view.View"))
-                        )
-                        cmt_btn.click()
+                        try:
+                            cmt_btn = WebDriverWait(driver, 1).until(
+                                EC.presence_of_element_located((By.XPATH, "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup[2]/android.view.ViewGroup[11]/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[2]/android.view.ViewGroup[3]/android.view.View"))
+                            )
+                            cmt_btn.click()
+                        except:
+                            cmt_btn = WebDriverWait(driver, 1).until(
+                                EC.presence_of_element_located((By.XPATH, "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup[1]/android.view.ViewGroup[10]/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[3]/android.view.ViewGroup[3]/android.view.View"))
+                            )
+                            cmt_btn.click()
 
             try:
                 WebDriverWait(driver, 2).until( # most relevant btn
